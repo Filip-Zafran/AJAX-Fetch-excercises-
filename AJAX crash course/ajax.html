@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax 1 - Text file</title>
+</head>
+
+<body>
+    <button id="button">Get text file</button>
+    <br>
+    <br>
+    <div id='text'></div>
+</body>
+
+<script>
+    // Create an event listener
+    document.getElementById('button').addEventListener('click', loadText);
+
+    function loadText() {
+        // Create XHR Object
+        var xhr = new XMLHttpRequest();
+
+        // OPEN - type, url.file, async
+        xhr.open('GET', 'sample2.txt', true);
+
+        console.log('READYSTATE', xhr.readyState)
+
+        // OPTIONAL : used for loaders (loading image for waiting)
+        xhr.onprogress = function () {
+            console.log('READYSTATE', xhr.readyState)
+        }
+
+        // ======  1. ON-LOAD ili 2. ON-READY STATE CHANGE
+
+        // 1. ON-LOAD
+        xhr.onload = function () {
+            if (this.status = 200) {
+                // console.log(this.responseText)
+                document.getElementById('text').innerHTML = this.responseText
+            } else if (this.status = 404) {
+                document.getElementById('text').innerHTML = 'Not Found';
+            }
+        }
+
+        // 2. ON-READY STATE CHANGE
+        // xhr.onreadystatechange = function () {
+        // console.log('READYSTATE', xhr.readyState)
+        // if (this.readyState == 4 && this.status == 200) {
+        // console.log(this.responseText);
+        // }
+
+        xhr.onerror = function () {
+            console.log('Request Error...')
+
+        }
+
+
+
+        // ====== ON-LOAD ili ON-READY STATE CHANGE
+        // }
+        // Sends request
+        xhr.send();
+
+    }
+</script>
+
+</html>
+
+<!-- // on 25th min nisam dobio NOT FOUND, to je kraj prvog dijela -->
