@@ -1,18 +1,18 @@
 [{
         "id": 1,
-        "name": "Rich",
-        "email": "rich@rich.com"
+        "name": "Srale",
+        "email": "srale@gej.dr"
     },
 
     {
         "id": 2,
-        "name": "ann",
-        "email": "ann@rich.com"
+        "name": "Makinja",
+        "email": "Makinja@gej.dr"
     },
 
     {
         "id": 3,
-        "name": "Meg",
-        "email": "meg@rich.com"
+        "name": "Gibo",
+        "email": "Gibo@gej.dr"
     }
 ]

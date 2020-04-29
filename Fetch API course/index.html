@@ -15,32 +15,42 @@
 
 <body>
     <div class="container">
-        <h1 class="display-4 mb-4"> Fetch API Sandobox </h1>
+        <h1 class="display-4 mb-4"> PP <i style="font-size: small;">(prijavi pedera)</i> </h1>
 
         <div class="d=flex">
-            <button id="getText" class="btn btn-primary mr-4">Get Text</button>
-            <button id="getUsers" class="btn btn-success mr-4">Get JSON</button>
-            <button id="getPosts" class="btn btn-warning mr-4">Get API data</button>
+            <button id="getText" class="btn btn-primary mr-4">Ko' je gej?</button>
+            <button id="getUsers" class="btn btn-success mr-4">Ima li ih još?</button>
+            <button id="getPosts" class="btn btn-warning mr-4">Zašt' je i'ko?</button>
         </div>
         <hr />
         <div id="output"></div>
 
         <form id="addPost">
             <div class="form-group">
-                <input type="text" id="title" placeholder="Title" class="form-control" />
+                <hr>
+                <h2 class="btn btn-secondary mr-4">Prijavi još kojeg...</h2>
+                <input type="text" id="title" placeholder="Ime novog geja" class="form-control" />
             </div>
             <div class="form-group">
-                <textarea id="body" placeholder="Body" class="form-control"></textarea>
+                <textarea id="body" placeholder="Objasni zašto je gej..." class="form-control"></textarea>
             </div>
-            <input type="submit" value="Submit" class="btn btn-secondary mr-4" />
+            <input type="submit" value="Prijavi Pedera" class="btn btn-secondary mr-4" />
         </form>
     </div>
     <script>
         document.getElementById("getText").addEventListener("click", getText);
         document.getElementById("getUsers").addEventListener("click", getUsers);
-        document.getElementById("getPosts").addEventListener("click", getPosts);
+        document.getElementById("getPosts").addEventListener("click", () => {
+            getPosts();
+            alert1();
+        });
+
+        function alert1() {
+            alert("Nije mi se dalo radit ovaj dio...");
+        }
 
         document.getElementById("addPost").addEventListener("submit", addPost);
+
 
         function getText() {
             // fetch('sample.txt')
@@ -73,9 +83,9 @@
                         // PAZI!!! ` nije '
                         output += `
                               <ul class="list-group mb-3">
-      <li class="list-group-item"> ID: ${user.id} </li>
-      <li class="list-group-item"> ID: ${user.name} </li>
-      <li class="list-group-item"> ID: ${user.email} </li>
+      <li class="list-group-item"> #: ${user.id} </li>
+      <li class="list-group-item"> ime: ${user.name} </li>
+      <li class="list-group-item"> mejl: ${user.email} </li>
                               </ul>
                               `;
                     });
